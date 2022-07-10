@@ -59,9 +59,11 @@ function updateFilters() {
 
     // 9. Loop through all of the filters and keep any data that
     // matches the filter values
-    Object.keys(filters).forEach(keys=> {
-      filteredData = filteredData.filter(row=> row.keys === filters[keys]);
+    Object.entries(filters).forEach(([k,v])=> {
+      filteredData = filteredData.filter(row=> row[k] === v);
     });
+
+
         // Apply 'filter' to the table data to only keep the rows 
         //where the 'datetime' value matches the filter values
       console.log(filteredData);
